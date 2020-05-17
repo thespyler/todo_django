@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo List</title>
+</head>
+<body style="font: caption;">
+	{% for task in all_tasks %}
+		
+		<form action="/delete/{{ task.id }}/" method="post">{% csrf_token %}
+			{{ task.alltasks }}
+			<input type="submit" value="delete">
+			<br></form>
+	{% endfor %}
+	<h3>This is a todo list page</h3>
+	<form action="add/" method="post">
+		{% csrf_token %}
+		<input type="text" name="task">
+		<input type="submit" value="Add">
+	</form>
+</body>
+</html>
